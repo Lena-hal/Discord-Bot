@@ -68,7 +68,7 @@ def story_gen():
 
     pronouns = choice(["He/him","She/her"])
     postava =choice(postava[pronouns])
-    game = randint(0,3)
+    game = randint(0,5)
     start = choice(hra[game][pronouns]["start"])
     end = choice(hra[game][pronouns]["konec"])
 
