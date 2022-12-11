@@ -40,6 +40,24 @@ def story_gen():
             "start": ["vytvořil nový svět","připojil se na náhodný server","připojil se na náhodný realm","připojil se na holkoklucicarny SMP"],
             "konec": ["někdo ho napadl a zabil, byl to hardcore takže se už nevrátí...", "někdo ho napadl a zabil, respawnul se zabila ji!", "po nějaké době hraní našel diamanty a teď má hodně diamantových hoes", "hrál tak dobře že porazil draka a teď dominuje celému světu.", "po chvíli ho to přestalo ji to bavit tak si šel honit pero", "snažil se ale nešlo mu to, třeba mu to pujde někdy příště... "]
         },
+    4: { # Pokemon
+      "She/her": {
+          "start": ["se dostala do pokemoního zápasu", "šla do vysoké trávy a zaůtočil na ní divoký pokemon", "jednoho dne tradovala pokemony", "jednou měla práci v pokemoním středisku"],
+          "konec": ["ale když viděla že se před ní objevila Lopunny ztratila kontrolu nad svím tělem a udělala nekalé věci :(.", "ale když viděla že se před ní objevila Gardervoir ztratila kontrolu nad svím tělem a udělala nekalé věci :(.", "ale když viděla že se před ní objevil Machamp ztratila kontrolu nad svím tělem a udělala nekalé věci :(.", "ale když viděla že se před ní objevil Vaporeon ztratila kontrolu nad svím tělem a udělala nekalé věci :(."]
+      },
+      "He/him": {
+          "start": ["se dostal do pokemoního zápasu", "šel do vysoké trávy a zaůtočil na něj divoký pokemon", "jednoho dne tradoval pokemony", "jednou měl práci v pokemoním středisku"],
+          "konec": ["ale když viděl že se před ním objevila Lopunny ztratil kontrolu nad svím tělem a udělal nekalé věci :(.", "ale když viděl že se před ním objevila Gardervoir ztratil kontrolu nad svím tělem a udělal nekalé věci :(.", "ale když viděl že se před ním objevil Machamp ztratil kontrolu nad svím tělem a udělal nekalé věci :(.", "ale když viděl že se před ním objevil Vaporeon ztratil kontrolu nad svím tělem a udělal nekalé věci :(."]
+      },
+    5: { # Vlaky
+      "She/her": {
+          "start": ["jednou jela vlakem IC 515 Pendolino", "jednou jela vlakem R926 Krakonoš", "jednou jela vlakem R756 Berounka", "jednou jela vlakem Os 7602", "jednou jela vlakem R604 Krušnohor"],
+          "konec": ["bohužel někdo spadnul pod vlak takže vlak měl spoždění 40 minut.", "naneštěstí správa vlaku něco pojebala takže vlak měl zpoždění 30 minut.",  "bohužel byl Polskej kamion na předjezdu takže měl zpoždění 25 minut.", "bohužel tvoje máma zalehla trať takže musela jéct náhradní autobusovou dopravou.", "ale měla velké štěstí a vlak jel na čas."]
+      },
+      "He/him": {
+          "start": ["jednou jel vlakem IC 515 Pendolino", "jednou jel vlakem R926 Krakonoš", "jednou jel vlakem R756 Berounka", "jednou jel vlakem Os 7602", "jednou jel vlakem R604 Krušnohor"],
+          "konec": ["bohužel někdo spadnul pod vlak takže vlak měl spoždění 40 minut.", "naneštěstí správa vlaku něco pojebala takže vlak měl zpoždění 30 minut.",  "bohužel byl Polskej kamion na předjezdu takže měl zpoždění 25 minut.", "bohužel tvoje máma zalehla trať takže musela jéct náhradní autobusovou dopravou.", "ale měla velké štěstí a vlak jel na čas."]
+      },
     },
     }
 
