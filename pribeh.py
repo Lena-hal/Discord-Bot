@@ -64,7 +64,7 @@ def story_gen():
     }
 
     postava = {
-        "She/her":["Pavlí", "Lena", "Kapitánka", "Adélka", "Fena", "Markétka"],
+        "She/her":["Pavlí", "Lena", "Kapitánka", "Adélka", "Fena", "Markétka", "Kiki"],
         "He/him":["Šéf", "Archie", "Péťa", "Džimmy", "Fanoušek", "Skyf", "Ol*a", "Kiki"]
         }
 
