@@ -118,5 +118,3 @@ def story_gen():
     end = choice(hra[story_context][pronouns]["konec"])
 
     return (postava + " " + start + " " + end)
-
-print(story_gen())
