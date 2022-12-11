@@ -65,7 +65,7 @@ def story_gen():
 
     postava = {
         "She/her":["Pavlí", "Lena", "Kapitánka", "Adélka", "Fena", "Markétka", "Kiki"],
-        "He/him":["Šéf", "Archie", "Péťa", "Džimmy", "Fanoušek", "Skyf", "Ol*a", "Kiki"]
+        "He/him":["Šéf", "Archie", "Péťa", "Džimmy", "Fanoušek", "Skyf", "Ol*a", "Kiki", "Pavlí"]
         }
 
     pronouns = choice(["He/him","She/her"])
