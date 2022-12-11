@@ -58,7 +58,7 @@ def story_gen():
       },
       "He/him": {
           "start": ["jednou jel vlakem IC 515 Pendolino", "jednou jel vlakem R926 Krakonoš", "jednou jel vlakem R756 Berounka", "jednou jel vlakem Os 7602", "jednou jel vlakem R604 Krušnohor"],
-          "konec": ["bohužel někdo spadnul pod vlak takže vlak měl spoždění 40 minut.", "naneštěstí správa vlaku něco pojebala takže vlak měl zpoždění 30 minut.",  "bohužel byl Polskej kamion na předjezdu takže měl zpoždění 25 minut.", "bohužel tvoje máma zalehla trať takže musela jéct náhradní autobusovou dopravou.", "ale měla velké štěstí a vlak jel na čas."]
+          "konec": ["bohužel někdo spadnul pod vlak takže vlak měl spoždění 40 minut.", "naneštěstí správa vlaku něco pojebala takže vlak měl zpoždění 30 minut.",  "bohužel byl Polskej kamion na předjezdu takže měl zpoždění 25 minut.", "bohužel tvoje máma zalehla trať takže musela jéct náhradní autobusovou dopravou.", "ale měl velké štěstí a vlak jel na čas."]
       },
     },
     }
