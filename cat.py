@@ -1,9 +1,10 @@
 import requests
 import json
-
+import os
+API_KEY = os.environ["CAT_TOKEN"]
 
 def get_random_cat():
-    cat_request = requests.get("https://api.thecatapi.com/v1/images/search")
+    cat_request = requests.get("https://api.thecatapi.com/v1/images/search?api_key={API_KEY}")
     cat_data = json.loads(cat_request.content)
 
     return cat_data[0]["url"]
@@ -18,7 +19,7 @@ def get_breed_list():
     return string
 
 def get_specific_cat_breed(id: str):
-    cat_request = requests.get(f"https://api.thecatapi.com/v1/images/search?breed_ids={id}")
+    cat_request = requests.get(f"https://api.thecatapi.com/v1/images/search?breed_ids={id},api_key={API_KEY}")
     cat_data = json.loads(cat_request.content)
     if len(cat_data) == 0:
         return "Invalidní kočičk ID"

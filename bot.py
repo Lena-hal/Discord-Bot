@@ -48,9 +48,9 @@ async def kocick_list(ctx: Context) -> None:
 async def kocick_breed(ctx: Context, id:str) -> None:
     await ctx.send(cat.get_specific_cat_breed(id))
 
-@bot.command(name="help")
-async def help(ctx: Context) -> None:
-    await ctx.send("!buttping [sila 0-100] - nepovím co to děla \n!cock_rate - ohodnoti solidnost péra\n!help - ukaže tuto spravu\n!story - vygeneruje real příběh\n!kočičk - pošle foto kočičky\n!kočičk_list - pošle list možných ras koček a jejich id\n!kočičk_breed [ID] - pošle foto specifické rasy kočky")
+#@bot.command(name="help")
+#async def help(ctx: Context) -> None:
+#    await ctx.send("!buttping [sila 0-100] - nepovím co to děla \n!cock_rate - ohodnoti solidnost péra\n!help - ukaže tuto spravu\n!story - vygeneruje real příběh\n!kočičk - pošle foto kočičky\n!kočičk_list - pošle list možných ras koček a jejich id\n!kočičk_breed [ID] - pošle foto specifické rasy kočky")
 
 
 assert TOKEN, "Nebyl nastaven zadny token"
