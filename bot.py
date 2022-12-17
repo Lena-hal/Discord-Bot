@@ -6,6 +6,7 @@ from discord.ext.commands import Context
 from dotenv import load_dotenv
 import random
 import pribeh
+import cat
 
 TOKEN = os.environ["TOKEN"]
 
@@ -34,6 +35,23 @@ async def buttping(ctx: Context, num: int) -> None:
         await ctx.message.add_reaction("✅")
     else:
         await ctx.send("nemůžeš to dát přes 100%")
+
+@bot.command(name="kočičk")
+async def kocick(ctx: Context) -> None:
+    await ctx.send(cat.get_random_cat())
+
+@bot.command(name="kočičk_list")
+async def kocick_list(ctx: Context) -> None:
+    await ctx.send(cat.get_breed_list())
+
+@bot.command(name="kočičk_breed")
+async def kocick_breed(ctx: Context, id:str) -> None:
+    await ctx.send(cat.get_specific_cat_breed(id))
+
+@bot.command(name="help")
+async def help(ctx: Context) -> None:
+    await ctx.send("!buttping [sila 0-100] - nepovím co to děla \n!cock_rate - ohodnoti solidnost péra\n!help - ukaže tuto spravu\n!story - vygeneruje real příběh\n!kočičk - pošle foto kočičky\n!kočičk_list - pošle list možných ras koček a jejich id\n!kočičk_breed [ID] - pošle foto specifické rasy kočky")
+
 
 assert TOKEN, "Nebyl nastaven zadny token"
 bot.run(TOKEN)
