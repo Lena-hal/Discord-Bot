@@ -128,3 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 udaje.env
+myproject.toml
+poetry.lock
+replit.nix
+.replit
+.breakpoints
