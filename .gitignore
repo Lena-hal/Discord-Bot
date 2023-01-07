@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 udaje.env
 myproject.toml
+pyproject.toml
 poetry.lock
 replit.nix
 .replit
