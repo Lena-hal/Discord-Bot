@@ -31,6 +31,8 @@ async def on_message(message):
         except Exception as e: 
             print(e)
             await message.reply(content="nepodařilo se ověřit reddit účet (musíš mít 50+ karmy a víc jak měsíc starej reddit účet) zkus to znova asi idk (kód od Lenušky)")
+            
+    bot.process_commands(message)
 
 @bot.command(name="cock_rate")
 async def cock_rate(ctx: Context) -> None:
