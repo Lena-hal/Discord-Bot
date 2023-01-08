@@ -5,6 +5,7 @@ from discord.ext.commands import Context
 import random
 import pribeh
 import cat
+import okkr_verify
 
 TOKEN = os.environ["TOKEN"]
 
@@ -13,6 +14,23 @@ intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", case_insensitive=True, intents=intents)
 
+@bot.event
+async def on_message(message):
+    if message.author.id == 1051272546391167056: #okkr bot
+        return
+    if message.channel.id == 1061712331949735976:
+        try:
+            if not (" " in message.content): 
+                auth = okkr_verify.auth_user(message.content)
+                if auth == "PS":
+                    await message.reply(content="odteď není cesty zpět :)")
+                    await message.author.add_roles(message.guild.get_role(1061710908637851668))
+                elif auth == "PN":
+                    await message.reply(content="tvůj účet musí mít alespoň 50 karmy a být starší než měsíc")
+                else: await message.reply(content="účet neexistuje (kód od Lenušky)")
+        except Exception as e: 
+            print(e)
+            await message.reply(content="nepodařilo se ověřit reddit účet (musíš mít 50+ karmy a víc jak měsíc starej reddit účet) zkus to znova asi idk (kód od Lenušky)")
 
 @bot.command(name="cock_rate")
 async def cock_rate(ctx: Context) -> None:
@@ -27,15 +45,21 @@ async def cock_rate(ctx: Context) -> None:
 
 @bot.command(name="story")
 async def story(ctx: Context) -> None:
-    await ctx.send(pribeh.story_gen())
+    if ctx.guild.id == 965959215153811487:
+        await ctx.send(pribeh.story_gen())
+    else:
+        return
 
 
 @bot.command(name="buttping")
 async def buttping(ctx: Context, num: int) -> None:
-    if num in range(0, 101):
-        await ctx.message.add_reaction("✅")
+    if ctx.guild.id == 965959215153811487:
+        if num in range(0, 101):
+            await ctx.message.add_reaction("✅")
+        else:
+            await ctx.send("nemůžeš to dát přes 100%")
     else:
-        await ctx.send("nemůžeš to dát přes 100%")
+        return
 
 
 @bot.command(name="kočičk")
