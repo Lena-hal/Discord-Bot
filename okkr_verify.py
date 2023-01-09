@@ -20,7 +20,4 @@ def auth_user(username:str): #funkce na authentifikaci uživatele
         user = reddit.redditor(username) #najde uživatele v databazi uživatelů
     total_karma = user.link_karma+ user.comment_karma #vypočíta počet karmy
     total_time = time.time()-user.created_utc # vypočítá čas od založení učtu
-    if total_karma > MIN_ACCOUNT_KARMA and MIN_ACCOUNT_AGE < total_time: #pokud splňuje podmínky vrátí True, jinak vrát False
-        return "PS" #Podmínky Splněny
-    else:
-        return "PN" #Podmínky Nesplněny
+    return "PS" #Podmínky Splněny

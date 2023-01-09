@@ -134,3 +134,7 @@ poetry.lock
 replit.nix
 .replit
 .breakpoints
+setup.py
+
+bot.py:9
+bot.py:12
