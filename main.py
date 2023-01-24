@@ -2,7 +2,6 @@ from flask import Flask
 import bot
 import threading
 
-print("aaa")
 app = Flask(__name__)
 
 

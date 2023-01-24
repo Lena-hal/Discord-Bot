@@ -6,8 +6,13 @@ import random
 import pribeh
 import cat
 import okkr_verify
+import random
+import asyncpraw
+import asyncio
 
 TOKEN = os.environ["TOKEN"]
+reddit_client_id = os.environ["client_id"]
+reddit_client_secret = os.environ["client_secret"]
 
 intents = Intents.default()
 intents.message_content = True
@@ -22,7 +27,7 @@ async def on_message(message):
         try:
             if not (" " in message.content): 
                 auth = okkr_verify.auth_user(message.content)
-                if auth == "PS":
+                if auth == True:
                     await message.reply(content="odteď není cesty zpět :)")
                     await message.author.add_roles(message.guild.get_role(1061710908637851668))
                 else: await message.reply(content="účet neexistuje (kód od Lenušky)")
@@ -97,6 +102,20 @@ async def help(ctx: Context) -> None:
         !kočičk_list - pošle list možných ras koček a jejich id\n
         !kočičk_breed [ID] - pošle foto specifické rasy kočky
         """)
+
+@bot.command(name="fem_meme")
+async def get_random_meme(ctx: Context, subreddit_list=["egg_irl","traaaaaaannnnnnnnnns","4tran","femboymemes"]):
+    if ctx.guild.id == 965959215153811487:
+        reddit = asyncpraw.Reddit(client_id=reddit_client_id, user_agent="okkr_bot:v0.0.1", client_secret=reddit_client_secret)
+        subreddit_name = random.choice(subreddit_list)
+        subreddit = await reddit.subreddit(subreddit_name)
+        hot_posts = subreddit.hot(limit=100)
+        memes = []
+        async for post in hot_posts:
+            memes.append(post)
+
+        await ctx.send(random.choice(memes).url)
+        await reddit.close()
 
 
 def run():
