@@ -1,4 +1,5 @@
 import os
+import socket
 from discord import Intents
 from discord.ext import commands
 from discord.ext.commands import Context
@@ -9,10 +10,17 @@ import okkr_verify
 import random
 import asyncpraw
 import asyncio
+from dotenv import load_dotenv
 
-TOKEN = os.environ["TOKEN"]
-reddit_client_id = os.environ["client_id"]
-reddit_client_secret = os.environ["client_secret"]
+if socket.gethostname() == "DESKTOP-S0FLL2V":
+    load_dotenv("udaje.env")
+    TOKEN = os.getenv("TOKEN")
+    reddit_client_id = os.getenv("client_id")
+    reddit_client_secret = os.getenv("client_secret")
+else:
+    TOKEN = os.environ["TOKEN"]
+    reddit_client_id = os.environ["client_id"]
+    reddit_client_secret = os.environ["client_secret"]
 
 intents = Intents.default()
 intents.message_content = True
@@ -26,7 +34,7 @@ async def on_message(message):
     if message.channel.id == 1061712331949735976:
         try:
             if not (" " in message.content): 
-                auth = okkr_verify.auth_user(message.content)
+                auth = await okkr_verify.auth_user(message.content)
                 if auth == True:
                     await message.reply(content="odteď není cesty zpět :)")
                     await message.author.add_roles(message.guild.get_role(1061710908637851668))

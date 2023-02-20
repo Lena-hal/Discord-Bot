@@ -1,12 +1,17 @@
 import requests
 import json
 import os
+import socket
+from dotenv import load_dotenv
 
-API_KEY = os.environ["CAT_TOKEN"]
+if socket.gethostname() == "DESKTOP-S0FLL2V":
+    load_dotenv("udaje.env")
+    API_KEY = os.getenv('CAT_TOKEN')
+else:
+    API_KEY = os.environ["CAT_TOKEN"]
 
 
 def get_random_cat():
-    API_KEY = os.environ["CAT_TOKEN"]
     cat_request = requests.get(
         f"https://api.thecatapi.com/v1/images/search?api_key={API_KEY}")
     cat_data = json.loads(cat_request.content)
