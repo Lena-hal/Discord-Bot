@@ -12,6 +12,8 @@ import asyncpraw
 import asyncio
 from dotenv import load_dotenv
 
+EMOJI_POO = "💩"
+
 if socket.gethostname() == "DESKTOP-S0FLL2V":
     load_dotenv("udaje.env")
     TOKEN = os.getenv("TOKEN")
@@ -31,6 +33,10 @@ bot = commands.Bot(command_prefix="!", case_insensitive=True, intents=intents, h
 async def on_message(message):
     if message.author.id == 1051272546391167056: #okkr bot
         return
+    if message.author.id == 353932703483166723: # starmex jdu kadit
+        if "kadit" in message.content:
+            await message.add_reaction(EMOJI_POO)
+
     if message.channel.id == 1061712331949735976:
         try:
             if not (" " in message.content): 
