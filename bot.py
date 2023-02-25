@@ -27,29 +27,40 @@ else:
 intents = Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix="!", case_insensitive=True, intents=intents, help_command=None)
+bot = commands.Bot(command_prefix="!",
+                   case_insensitive=True,
+                   intents=intents,
+                   help_command=None)
+
 
 @bot.event
 async def on_message(message):
-    if message.author.id == 1051272546391167056: #okkr bot
+    if message.author.id == 1051272546391167056:  #okkr bot
         return
-    if message.author.id == 353932703483166723: # starmex jdu kadit
-        if "kadit" in message.content:
+    if message.author.id == 353932703483166723:  # starmex jdu kadit
+        if "kadit" in message.content or "kakat" in message.content:
             await message.add_reaction(EMOJI_POO)
 
     if message.channel.id == 1061712331949735976:
         try:
-            if not (" " in message.content): 
+            if not (" " in message.content):
                 auth = await okkr_verify.auth_user(message.content)
                 if auth == True:
                     await message.reply(content="odteď není cesty zpět :)")
-                    await message.author.add_roles(message.guild.get_role(1061710908637851668))
-                else: await message.reply(content="účet neexistuje (kód od Lenušky)")
-        except Exception as e: 
+                    await message.author.add_roles(
+                        message.guild.get_role(1061710908637851668))
+                else:
+                    await message.reply(
+                        content="účet neexistuje (kód od Lenušky)")
+        except Exception as e:
             print(e)
-            await message.reply(content="nepodařilo se ověřit reddit účet zkus to znova asi idk (kód od Lenušky)")
+            await message.reply(
+                content=
+                "nepodařilo se ověřit reddit účet zkus to znova asi idk (kód od Lenušky)"
+            )
 
     await bot.process_commands(message)
+
 
 @bot.command(name="cock_rate")
 async def cock_rate(ctx: Context) -> None:
@@ -117,10 +128,16 @@ async def help(ctx: Context) -> None:
         !kočičk_breed [ID] - pošle foto specifické rasy kočky
         """)
 
+
 @bot.command(name="fem_meme")
-async def get_random_meme(ctx: Context, subreddit_list=["egg_irl","traaaaaaannnnnnnnnns","4tran","femboymemes"]):
+async def get_random_meme(
+    ctx: Context,
+    subreddit_list=["egg_irl", "traaaaaaannnnnnnnnns", "4tran",
+                    "femboymemes"]):
     if ctx.guild.id == 965959215153811487:
-        reddit = asyncpraw.Reddit(client_id=reddit_client_id, user_agent="okkr_bot:v0.0.1", client_secret=reddit_client_secret)
+        reddit = asyncpraw.Reddit(client_id=reddit_client_id,
+                                  user_agent="okkr_bot:v0.0.1",
+                                  client_secret=reddit_client_secret)
         subreddit_name = random.choice(subreddit_list)
         subreddit = await reddit.subreddit(subreddit_name)
         hot_posts = subreddit.hot(limit=100)
