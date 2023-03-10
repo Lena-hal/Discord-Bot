@@ -11,6 +11,17 @@ import random
 import asyncpraw
 import asyncio
 from dotenv import load_dotenv
+import database_controller as dbc
+
+
+"""
+TODO: 
+analizace četnosti slov a nasledna soutěž o "slovo dne" z vyběru top 1000 slov
+přikaz na každou osobu ktera vygeneruje random větu z chat logu té osoby
+list vtipnych slov ktere by udělali odpověď
+když někdo napiše levlí tak to odpoví random hlaškou
+"""
+
 
 EMOJI_POO = "💩"
 
