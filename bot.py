@@ -12,6 +12,7 @@ import asyncpraw
 import asyncio
 from dotenv import load_dotenv
 import database_controller as dbc
+import command_settings
 
 
 """
@@ -75,18 +76,19 @@ async def on_message(message):
 
 @bot.command(name="cock_rate")
 async def cock_rate(ctx: Context) -> None:
-    percentage = random.randint(0, 100)
-    if ctx.author.id == 463805595527544832:
-        await ctx.send("tvůj penis je tak otřesný že by se měl odříznout...")
-    else:
-        await ctx.send(
-            ("rada penisu posoudila tvuj cock a dává mu finální hodnocení " +
-             str(percentage) + "% solidnosti"))
+    if ctx.guild.id in command_settings.cockrate:
+        percentage = random.randint(0, 100)
+        if ctx.author.id == 463805595527544832:
+            await ctx.send("tvůj penis je tak otřesný že by se měl odříznout...")
+        else:
+            await ctx.send(
+                ("rada penisu posoudila tvuj cock a dává mu finální hodnocení " +
+                str(percentage) + "% solidnosti"))
 
 
 @bot.command(name="story")
 async def story(ctx: Context) -> None:
-    if ctx.guild.id == 965959215153811487:
+    if ctx.guild.id in command_settings.story:
         await ctx.send(pribeh.story_gen())
     else:
         return
@@ -94,7 +96,7 @@ async def story(ctx: Context) -> None:
 
 @bot.command(name="buttping")
 async def buttping(ctx: Context, num: int) -> None:
-    if ctx.guild.id == 965959215153811487:
+    if ctx.guild.id in command_settings.buttping:
         if num in range(0, 101):
             await ctx.message.add_reaction("✅")
         else:
@@ -105,47 +107,32 @@ async def buttping(ctx: Context, num: int) -> None:
 
 @bot.command(name="kočičk")
 async def kocick(ctx: Context) -> None:
-    await ctx.send(cat.get_random_cat())
+    if ctx.guild.id in command_settings.kocick:
+        await ctx.send(cat.get_random_cat())
 
 
 @bot.command(name="kočičk_list")
 async def kocick_list(ctx: Context) -> None:
-    await ctx.send(cat.get_breed_list())
+    if ctx.guild.id in command_settings.kocick:
+        await ctx.send(cat.get_breed_list())
 
 
 @bot.command(name="kočičk_breed")
 async def kocick_breed(ctx: Context, id: str) -> None:
-    await ctx.send(cat.get_specific_cat_breed(id))
+    if ctx.guild.id in command_settings.kocick:
+        await ctx.send(cat.get_specific_cat_breed(id))
 
 
 @bot.command(name="help")
 async def help(ctx: Context) -> None:
-    if ctx.guild.id == 965959215153811487:
-        await ctx.send("""
-        !buttping [sila 0-100] - nepovím co to děla \n
-        !cock_rate - ohodnoti solidnost péra\n
-        !help - ukaže tuto spravu\n
-        !story - vygeneruje real příběh\n
-        !kočičk - pošle foto kočičky\n
-        !kočičk_list - pošle list možných ras koček a jejich id\n
-        !kočičk_breed [ID] - pošle foto specifické rasy kočky
-        """)
-    else:
-        await ctx.send("""
-        !cock_rate - ohodnoti solidnost péra\n
-        !help - ukaže tuto spravu\n
-        !kočičk - pošle foto kočičky\n
-        !kočičk_list - pošle list možných ras koček a jejich id\n
-        !kočičk_breed [ID] - pošle foto specifické rasy kočky
-        """)
-
+    ctx.send("Toto je pořad ještě ve vívoji, zatím tu nic není")
 
 @bot.command(name="fem_meme")
 async def get_random_meme(
     ctx: Context,
     subreddit_list=["egg_irl", "traaaaaaannnnnnnnnns", "4tran",
                     "femboymemes"]):
-    if ctx.guild.id == 965959215153811487:
+    if ctx.guild.id in command_settings.kocick:
         reddit = asyncpraw.Reddit(client_id=reddit_client_id,
                                   user_agent="okkr_bot:v0.0.1",
                                   client_secret=reddit_client_secret)
