@@ -31,7 +31,14 @@ help = [
     TESTING
 ]
 fem_meme = [
-    HOLKOKLUCI
+    HOLKOKLUCI,
+    TESTING
+]
+
+nerdify = [
+    HOLKOKLUCI,
+    OKKR,
+    TESTING
 ]
 
 
