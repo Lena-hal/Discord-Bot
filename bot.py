@@ -34,12 +34,10 @@ if socket.gethostname() == "DESKTOP-S0FLL2V":
     TOKEN = os.getenv("TOKEN")
     reddit_client_id = os.getenv("client_id")
     reddit_client_secret = os.getenv("client_secret")
-    TEST_GUILD = 965959215153811487
 else:
     TOKEN = os.environ["TOKEN"]
     reddit_client_id = os.environ["client_id"]
     reddit_client_secret = os.environ["client_secret"]
-    TEST_GUILD = None
 
 intents = Intents.default()
 intents.message_content = True
@@ -91,22 +89,17 @@ async def get_random_meme(ctx):
 
     await ctx.response.send_message(random.choice(memes).url)
     await reddit.close()
-"""
-@tree.command(name = "nerdify", description="Zaručeně vyhraje jakýkoli argument")
-@app_commands.guilds(*command_settings.nerdify)
-async def nerdify(ctx):
-    
-"""
+
+
 @client.event
 async def on_message(message):
     if message.author.id == 1051272546391167056:  #okkr bot
         return
     if message.author.id == 353932703483166723:  # starmex jdu kadit
-        if "kadit" in message.content or "kakat" in message.content:
+        if "kadit" in message.content.lower() or "kakat" in message.content.lower():
             await message.add_reaction(EMOJI_POO)
-    if message.content == "!nerdify":
+    if message.content.lower() == "!nerdify":
         nerd = message.reference.cached_message.content
-        print(nerd)
         state = False
 
         result = ""
@@ -121,8 +114,11 @@ async def on_message(message):
             if i == " ":
                 result += ":nerd: "
 
-        await message.reference.cached_message.reply(result)
-        await message.delete()
+        if len(result) > 2000:
+            await message.delete()
+        else:
+            await message.reference.cached_message.reply(result)
+            await message.delete()
         
 
     if message.channel.id == 1061712331949735976:
@@ -137,18 +133,17 @@ async def on_message(message):
                     await message.reply(
                         content="účet neexistuje (kód od Lenči :3)")
         except Exception as e:
-            print(e)
             await message.reply(
                 content=
                 "nepodařilo se ověřit reddit účet zkus to znova asi idk (kód od Lenušky)"
             )
 
 @client.event
+@app_commands.guilds(*command_settings.all)
 async def on_ready():
-    if TEST_GUILD == None:
-        await tree.sync()
-    else:
-        await tree.sync(guild=discord.Object(id=TEST_GUILD))
+    for i in command_settings.all:
+        print(await tree.sync(guild=discord.Object(id=i)))
+    
     print("Ready!")
 
 
