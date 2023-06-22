@@ -98,6 +98,8 @@ async def on_message(message):
     if message.author.id == 353932703483166723:  # starmex jdu kadit
         if "kadit" in message.content.lower() or "kakat" in message.content.lower():
             await message.add_reaction(EMOJI_POO)
+    if "srst" in message.content.lower() or "fur" in message.content.lower():
+        await message.reply("<@556928358848397322>")
     if message.content.lower() == "!nerdify":
         nerd = message.reference.cached_message.content
         state = False
