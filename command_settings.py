@@ -2,23 +2,27 @@ OKKR = 1061707074217705472
 HOLKOKLUCI = 965959215153811487
 MCSERVER = 1084527775752388688
 TESTING = 821300216325996565
+OMELETA = 996159514413899898
 
 all = [
     OKKR,
     HOLKOKLUCI,
     MCSERVER,
-    TESTING
+    TESTING,
+    OMELETA
 ]
 
 cockrate = [
     OKKR,
     HOLKOKLUCI,
-    TESTING
+    TESTING,
+    OMELETA
 ]
 
 story = [
     HOLKOKLUCI,
-    TESTING
+    TESTING,
+    OMELETA
 ]
 
 buttping = [
@@ -29,7 +33,8 @@ kocick = [
     OKKR,
     HOLKOKLUCI,
     MCSERVER,
-    TESTING
+    TESTING,
+    OMELETA
 ]
 help = [
     OKKR,
@@ -39,13 +44,13 @@ help = [
 ]
 fem_meme = [
     HOLKOKLUCI,
-    TESTING
+    TESTING,
+    OMELETA
 ]
 
 nerdify = [
     HOLKOKLUCI,
     OKKR,
-    TESTING
+    TESTING,
+    OMELETA
 ]
-
-
